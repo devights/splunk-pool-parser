@@ -1,6 +1,6 @@
-import os
 import configparser
 import sys
+
 
 def get_pools_from_file(path):
     config = configparser.ConfigParser()
@@ -19,7 +19,6 @@ def get_pools_from_file(path):
 
 
 def run():
-    print(sys.argv[0])
     data = None
     try:
         data = get_pools_from_file(sys.argv[1])
@@ -30,10 +29,11 @@ def run():
     else:
         print("No pool data in file")
 
+
 def print_data(data):
     total = 0
     for row in data:
-        print("%s %s" %(row['pool'], row['quota']))
+        print("%s %s" % (row['pool'], row['quota']))
         total += row['quota']
     print("total %s" % total)
 
